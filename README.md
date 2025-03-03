@@ -4,14 +4,17 @@ Ejercicios de DataLemur en SQL
 1. Leccion 101 - SQL TUTORIAL INTRO
    * SQL TUTORIAL INTRO
      - Given the reviews table, write a query to retrieve all 3-star reviews using the SQL WHERE clause. Only display the user_id and stars columns.
+       
              SELECT user_id, stars FROM reviews
              WHERE stars = 3;
    * SQL SELECT Practice Exercise
      - Your given a products table, which contains data about different Microsoft Azure cloud products.
        Output all the data, in all the columns.
+       
              SELECT * FROM products;
    * SQL WHERE Practice Exercise
      - Given the reviews table, write a query to retrieve all 3-star reviews using the SQL WHERE clause. Only display the user_id and stars columns.
+       
              SELECT user_id, stars FROM reviews
              WHERE stars = 3;
    * SQL WHERE AND Practice Exercise
@@ -84,6 +87,7 @@ Ejercicios de DataLemur en SQL
 2. Leccion 201 - INTERMEDIATE SQL
    * SQL COUNT() Practice Exercise
      - Output the number of rows in the pharmacy_sales table.
+       
              SELECT COUNT(*) FROM pharmacy_sales;
    * SQL SUM() Practice Exercise
      - Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data.
@@ -95,38 +99,46 @@ Ejercicios de DataLemur en SQL
              WHERE manufacturer = 'Pfizer';
    * SQL AVG() Practice Exercise
      - Write a SQL query using AVG to find the average open price for Google stock (which has a stock ticker symbol of 'GOOG').
+       
              SELECT AVG(open) FROM stock_prices
              WHERE ticker = 'GOOG';
    * SQL MIN() Practice Exercise
      - Use SQL's MIN command in this practice exercise, to find the lowest Microsoft stock (MSFT) ever opened at.
+       
              SELECT MIN(open) FROM stock_prices
              WHERE ticker = 'MSFT';
    * SQL MAX() Practice Exercise
      - Use SQL's MAX command in this practice exercise, to find the highest Netflix stock (NFLX) ever opened at.
+       
              SELECT MAX(open) FROM stock_prices
              WHERE ticker = 'NFLX';
    * Easy SQL GROUP BY Practice Exercise
      - For every FAANG stock in the stock_prices dataset, write a SQL query to find the lowest price each stock ever opened at? Be sure to also order your results by price, in descending order.
+       
              SELECT ticker, MIN(open) FROM stock_prices
              GROUP BY ticker
              ORDER BY min DESC;
    * SQL GROUP BY Practice Exercise: Candidate Skills
      - Suppose you are given a table of candidates and their skills. How many candidates possess each of the different skills? Sort your answers based on the count of candidates, from highest to lowest.
+       
              SELECT skill, COUNT(candidate_id) FROM candidates
              GROUP BY skill
              ORDER BY count DESC;
    * SQL HAVING MIN Practice Exercise
      - Use SQL's HAVING & MIN commands to find all FAANG stocks whose open share price was always greater than $100.
+       
              SELECT ticker, MIN(open) FROM stock_prices
              GROUP BY ticker
              HAVING MIN(open) > 100;
    * SQL HAVING Practice Exercise
      - Given a table of candidates and their technical skills, list the candidate IDs of candidates who have more than 2 technical skills.
+       
              SELECT candidate_id FROM candidates
              GROUP BY candidate_id
              HAVING COUNT(candidate_id) > 2;
    * SQL COUNT DISTINCT Practice Exercise
      - Assume you're given a table containing data on Amazon customers and their spending on products in different category. Write a query using COUNT DISTINCT to identify the number of unique products within each product category.
+       
              SELECT category, COUNT(DISTINCT product) FROM product_spend
              GROUP BY category;
    * Pharmacy Analytics(Part 1)
@@ -148,6 +160,7 @@ Ejercicios de DataLemur en SQL
              ORDER BY difference DESC;
    * SQL Math Practice Exercise: Big-Mover Months
      - Display the stocks which had "big-mover months", and how many of those months they had. Order your results from the stocks with the most, to least, "big-mover months".
+       
              SELECT ticker, COUNT(ticker) FROM stock_prices
              WHERE (close - open)/open > 0.10 OR (close - open)/open < -0.10
              GROUP BY ticker
