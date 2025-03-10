@@ -272,6 +272,30 @@ Ejercicios de DataLemur en SQL
              GROUP BY user_id
              HAVING COUNT(post_id) > 1;
 
+3. LECCION 301 - ADVANCED SQL
+   * SQL Tutorial Lesson: Top-Selling Artits
+     - Your mission is to unlock valuable insights by analyzing the concert revenue data and identifying the top revenue-generating artists within each music genre.
+
+       Write a query to rank the artists within each genre based on their revenue per member and extract the top revenue-generating artist from each genre. Display the output of the artist name, genre, concert revenue, number of members, and revenue per band member, sorted by the highest revenue per member within each genre.
+
+       WITH max_rev_per_genre AS(
+       SELECT genre, MAX(concert_revenue/number_of_members) AS               revenue_per_member
+       FROM concerts
+       GROUP BY genre
+       )
+
+       SELECT artist_name, concert_revenue,
+        genre, number_of_members,
+       (concert_revenue/number_of_members) AS revenue_per_member
+       FROM concerts
+       WHERE concert_revenue/number_of_members IN (
+       SELECT revenue_per_member FROM max_rev_per_genre
+       WHERE concerts.genre=max_rev_per_genre.genre
+       )
+       ORDER BY revenue_per_member DESC, genre;
+
+   * 
+
 
        
        
